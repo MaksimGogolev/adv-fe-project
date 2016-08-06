@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adv-fe | Post</title>
+    <link rel="stylesheet" href="post.css">
+</head>
+<body>
+
+    <div class="layout">
+        <div class="header">
+            <div class="header-layout">
+                <img src="app_logo.png" class="application-logo">
+                <div class="application-text__greeting">
+                    user@email
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+                <div class="posts-container__view">
+                </div>
+
+                <div class="posts-container__related">
+                </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/x-handlebars-template" id="post-view-template">
+        <div class="post-view">
+            {{#with post}}
+            <div class="post-view__island">
+                <div class="post-view__img-wrapper">
+                    <img class="post-view__img" src="{{imgUrl}}"></img>
+                </div>
+                <div class="post-view__description">{{description}}</div>
+            </div>
+            {{/with}}
+            {{>post-comments}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="post-comments-template">
+        {{#each comments}}
+            <p class="comments">{{username}}: {{text}}</p>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="posts-related-template">
+        <div class="posts-list">
+            {{#each posts}}
+                {{> post-related}}
+            {{/each}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="post-related-template">
+        <div class="post-related" data-id="{{id}}">
+            <div class="post-related__island">
+                <div class="post-related__img-wrapper">
+                    <img src="{{imgUrl}}" class="post-related__img" data-id="{{id}}"></img>
+                </div>
+                <div class="post-related__description" data-id="{{id}}">{{description}}</div>
+            </div>
+        </div>
+    </script>
+
+
+
+<script src="/libs/jquery/dist/jquery.js"></script>
+<script src="/libs/handlebars/handlebars.js"></script>
+<script src="/data.js"></script>
+<script src="/post.js"></script>
+
+</body>
+</html>

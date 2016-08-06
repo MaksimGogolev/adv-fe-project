@@ -1,0 +1,14 @@
+{
+  "name": "proj",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.1.0"
+  }
+}
